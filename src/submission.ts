@@ -158,7 +158,10 @@ async function handleReply(message: Message, suggestion: boolean, bug: boolean):
 
 function handleSubmission(msg: Message, type: "suggestion" | "bug"): void {
 	if (type == "bug") {
-		msg.reply("This system for reporting bugs is being phased out, please report it [here](<https://github.com/Creators-of-Create/Create/issues/new/choose>) instead!")
+		if (msg.channel.id === "976100492243501106") // fabric-bugs
+			msg.reply("This system for reporting bugs is being phased out, please report it [here](<https://github.com/Fabricators-of-Create/Create/issues/new/choose>) instead!")
+		else
+			msg.reply("This system for reporting bugs is being phased out, please report it [here](<https://github.com/Creators-of-Create/Create/issues/new/choose>) instead!")
 		return;
 	}
 
